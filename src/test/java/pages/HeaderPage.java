@@ -21,8 +21,32 @@ public class HeaderPage extends BasePage{
     public By menuicon_2nd_items_1st_page = By.xpath("//div[@class='catalogBrowser']");
     public By menuitems_3rd = By.xpath("//div[@class='menu-container']//div[3]");
     public By menuicon_3rd_items_1st_page = By.xpath("//body/div[@class='app-container']/div[@role='none']/div[@role='none']/div[@dir='auto']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[3]/div[2]/button[1]");
+
+
+
+
+
+
+
+
     public String menuitems_3rd_items_url = "https://cookups.app/";
     public String menuitem_2nd_url = "https://chaldal.com/pharmacy";
+
+    public By offer_button = By.xpath("//span[normalize-space()='Offers']");
+    public By offer_button_page = By.xpath("//h1[normalize-space()='Special Offers']");
+    
+
+    public By flashsale_button = By.xpath("//span[normalize-space()='Flash Sales']");
+    public By flashsale_button_page = By.xpath("//ul[@class='offer-container']");
+
+
+
+
+
+
+
+
+
 
 
     public By search_bar = By.xpath("//input[@id='desktop_search_field']");

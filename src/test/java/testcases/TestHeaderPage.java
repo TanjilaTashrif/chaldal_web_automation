@@ -16,12 +16,12 @@ public class TestHeaderPage extends DriverSetup {
     HomePage homePage = new HomePage();
 
     @BeforeMethod
-    public void loadHeaderPageForTest(){
+    public void loadHeaderPageForTest() {
         homePage.loadHomePage();
     }
 
     @Test(priority = 0, description = "Verify that the header option is displayed.")
-    public void TestheaderoptionDisplay(){
+    public void TestheaderoptionDisplay() {
         Assert.assertTrue(headerPage.isVisible(headerPage.log_in_option));
         Assert.assertTrue(headerPage.isEnable(headerPage.log_in_option));
 
@@ -54,7 +54,7 @@ public class TestHeaderPage extends DriverSetup {
     }*/
 
     @Test(priority = 4, description = "Verify Menu Items are added")
-    public void TestMenuItemsDisplay(){
+    public void TestMenuItemsDisplay() {
         Assert.assertTrue(headerPage.isVisible(headerPage.menuitems));
         Assert.assertTrue(headerPage.isEnable(headerPage.menuitems));
     }
@@ -74,39 +74,50 @@ public class TestHeaderPage extends DriverSetup {
         Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.menuitems_3rd_items_url);
     }
 
-//    @Test(priority = 6, description = "Verify that the \"Log in\" button should be clickable")
-//    public void TestSignInButton(){
-//        headerPage.clickOnElement(headerPage.log_in_option);
-//       // Assert.assertEquals(headerPage.getElement(headerPage.sign_in_page_msg).getText(),"সাইন ইন করুন");
+    @Test(priority = 6, description = "Verify that the \"Log in\" button should be clickable")
+    public void TestofferButton() {
+        headerPage.clickOnElement(headerPage.offer_button);
+        Assert.assertTrue(headerPage.isVisible(headerPage.offer_button));
+        headerPage.clickOnElement(headerPage.offer_button_page);
+        Assert.assertTrue(headerPage.isVisible(headerPage.offer_button_page));
+
+    }
+
+    @Test(priority = 7, description = "Verify the Search bar functionality")
+    public void TestSearchBarFunctionality() throws InterruptedException {
+        headerPage.clickOnElement(headerPage.offer_button);
+        Thread.sleep(3000);
+        headerPage.clickOnElement(headerPage.flashsale_button);
+        Thread.sleep(5000);
+
+//        Assert.assertTrue(headerPage.isVisible(headerPage.flashsale_button));
+//        headerPage.clickOnElement(headerPage.offer_button_page);
+        Assert.assertTrue(headerPage.isVisible(headerPage.flashsale_button_page));
+
+    }
+
+    @Test(priority = 8, description = "Verify the home page should be open by clicking on the logo on all pages.")
+    public void TestOpenHomePage() throws InterruptedException {
+        headerPage.scrollToAElement(headerPage.academic_book_1, -50);
+//        Thread.sleep(5000);
+        headerPage.clickOnElement(headerPage.academic_book_1);
+//        Thread.sleep(6000);
+        headerPage.clickOnElement(headerPage.website_logo);
+//        Thread.sleep(6000);
+        Assert.assertEquals(getDriver().getCurrentUrl(), homePage.url);
 //    }
 
-//    @Test(priority = 7, description = "Verify the Search bar functionality")
-//    public void TestSearchBarFunctionality(){
-//        headerPage.writeOnElement(headerPage.search_bar, "History");
-//        Assert.assertTrue(headerPage.isEnable(headerPage.search_bar));
-//    }
-
-//    @Test(priority = 8, description = "Verify the home page should be open by clicking on the logo on all pages.")
-//    public void TestOpenHomePage() throws InterruptedException {
-//        headerPage.scrollToAElement(headerPage.academic_book_1, -50);
-////        Thread.sleep(5000);
-//        headerPage.clickOnElement(headerPage.academic_book_1);
+//    @Test(priority = 9, description = "Verify that the Menu bar all items are clickable.")
+//    public void TestMenuBarClickable() throws InterruptedException {
+//        headerPage.clickOnElement(headerPage.menubar_electronics);
 ////        Thread.sleep(6000);
-//        headerPage.clickOnElement(headerPage.website_logo);
+//        headerPage.clickOnElement(headerPage.menubar_best_seller);
 ////        Thread.sleep(6000);
-//        Assert.assertEquals(getDriver().getCurrentUrl(), homePage.url);
+//        headerPage.clickOnElement(headerPage.menubar_order);
+////        Thread.sleep(6000);
+////        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(6000));
+//        Assert.assertFalse(getDriver().getCurrentUrl().equals(homePage.url));
+//        Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.order_page_url);
 //    }
-
-    @Test(priority = 9, description = "Verify that the Menu bar all items are clickable.")
-    public void TestMenuBarClickable() throws InterruptedException {
-        headerPage.clickOnElement(headerPage.menubar_electronics);
-//        Thread.sleep(6000);
-        headerPage.clickOnElement(headerPage.menubar_best_seller);
-//        Thread.sleep(6000);
-        headerPage.clickOnElement(headerPage.menubar_order);
-//        Thread.sleep(6000);
-//        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(6000));
-        Assert.assertFalse(getDriver().getCurrentUrl().equals(homePage.url));
-        Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.order_page_url);
     }
 }
