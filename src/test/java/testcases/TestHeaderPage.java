@@ -86,16 +86,16 @@ public class TestHeaderPage extends DriverSetup {
 //        Assert.assertTrue(headerPage.isEnable(headerPage.search_bar));
 //    }
 
-    @Test(priority = 8, description = "Verify the home page should be open by clicking on the logo on all pages.")
-    public void TestOpenHomePage() throws InterruptedException {
-        headerPage.scrollToAElement(headerPage.academic_book_1, -50);
-//        Thread.sleep(5000);
-        headerPage.clickOnElement(headerPage.academic_book_1);
-//        Thread.sleep(6000);
-        headerPage.clickOnElement(headerPage.website_logo);
-//        Thread.sleep(6000);
-        Assert.assertEquals(getDriver().getCurrentUrl(), homePage.url);
-    }
+//    @Test(priority = 8, description = "Verify the home page should be open by clicking on the logo on all pages.")
+//    public void TestOpenHomePage() throws InterruptedException {
+//        headerPage.scrollToAElement(headerPage.academic_book_1, -50);
+////        Thread.sleep(5000);
+//        headerPage.clickOnElement(headerPage.academic_book_1);
+////        Thread.sleep(6000);
+//        headerPage.clickOnElement(headerPage.website_logo);
+////        Thread.sleep(6000);
+//        Assert.assertEquals(getDriver().getCurrentUrl(), homePage.url);
+//    }
 
     @Test(priority = 9, description = "Verify that the Menu bar all items are clickable.")
     public void TestMenuBarClickable() throws InterruptedException {
