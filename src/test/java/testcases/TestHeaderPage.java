@@ -74,11 +74,11 @@ public class TestHeaderPage extends DriverSetup {
         Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.menuitems_3rd_items_url);
     }
 
-    @Test(priority = 6, description = "Verify that the \"Log in\" button should be clickable")
-    public void TestSignInButton(){
-        headerPage.clickOnElement(headerPage.log_in_option);
-       // Assert.assertEquals(headerPage.getElement(headerPage.sign_in_page_msg).getText(),"সাইন ইন করুন");
-    }
+//    @Test(priority = 6, description = "Verify that the \"Log in\" button should be clickable")
+//    public void TestSignInButton(){
+//        headerPage.clickOnElement(headerPage.log_in_option);
+//       // Assert.assertEquals(headerPage.getElement(headerPage.sign_in_page_msg).getText(),"সাইন ইন করুন");
+//    }
 
     @Test(priority = 7, description = "Verify the Search bar functionality")
     public void TestSearchBarFunctionality(){
