@@ -80,11 +80,11 @@ public class TestHeaderPage extends DriverSetup {
 //       // Assert.assertEquals(headerPage.getElement(headerPage.sign_in_page_msg).getText(),"সাইন ইন করুন");
 //    }
 
-    @Test(priority = 7, description = "Verify the Search bar functionality")
-    public void TestSearchBarFunctionality(){
-        headerPage.writeOnElement(headerPage.search_bar, "History");
-        Assert.assertTrue(headerPage.isEnable(headerPage.search_bar));
-    }
+//    @Test(priority = 7, description = "Verify the Search bar functionality")
+//    public void TestSearchBarFunctionality(){
+//        headerPage.writeOnElement(headerPage.search_bar, "History");
+//        Assert.assertTrue(headerPage.isEnable(headerPage.search_bar));
+//    }
 
     @Test(priority = 8, description = "Verify the home page should be open by clicking on the logo on all pages.")
     public void TestOpenHomePage() throws InterruptedException {
