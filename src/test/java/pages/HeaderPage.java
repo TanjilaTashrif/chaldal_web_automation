@@ -15,11 +15,14 @@ public class HeaderPage extends BasePage{
     public By navbar_items_4th = By.xpath("//span[contains(text(),'ঘরে বসে আয় করুন')]");
     public By navbar_items_5th = By.xpath("//span[contains(text(),'বই ডোনেশন')]");
 
+    public By menuItems_1 = By.xpath("//h5[normalize-space()='Grocery']");
     public By menuitems = By.xpath("//div[@class='menu-container']");
     public By menuitems_2nd = By.xpath("//div[@class='menu']//div[2]//*[name()='svg']");
     public By menuicon_2nd_items_1st_page = By.xpath("//div[@class='catalogBrowser']");
     public By menuitems_3rd = By.xpath("//div[@class='menu-container']//div[3]");
-    public By menuicon_3rd_items_1st_page = By.xpath("//input[@placeholder='Search']");
+    public By menuicon_3rd_items_1st_page = By.xpath("//body/div[@class='app-container']/div[@role='none']/div[@role='none']/div[@dir='auto']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[@role='none']/div[3]/div[2]/button[1]");
+    public String menuitems_3rd_items_url = "https://cookups.app/";
+    public String menuitem_2nd_url = "https://chaldal.com/pharmacy";
 
 
     public By search_bar = By.xpath("//input[@id='desktop_search_field']");

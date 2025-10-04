@@ -1,5 +1,6 @@
 package testcases;
 
+import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -61,17 +62,16 @@ public class TestHeaderPage extends DriverSetup {
     @Test(priority = 5, description = "Verify Menu Items are Clickable")
     public void MenuItems1stClickable() throws InterruptedException {
         headerPage.clickOnElement(headerPage.menuitems_2nd);
+        Thread.sleep(3000);
+        Assert.assertTrue(headerPage.isVisible(headerPage.menuicon_2nd_items_1st_page));
+        Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.menuitem_2nd_url);
 
         getDriver().navigate().back();
-        Thread.sleep(3000);
-        headerPage.clickOnElement(headerPage.menuitems_3rd);
-        //getDriver().navigate().back();
-//        headerPage.clickOnElement(headerPage.navbar_items_4th);
-//        headerPage.clickOnElement(headerPage.navbar_items_5th);
+        Thread.sleep(6000);
 
-        Assert.assertTrue(headerPage.isVisible(headerPage.menuicon_2nd_items_1st_page));
-        Assert.assertTrue(headerPage.isVisible(headerPage.menuicon_3rd_items_1st_page));
-        //Assert.assertFalse(getDriver().getCurrentUrl().equals(homePage.url));
+        headerPage.clickAndSwitchToNewTab(headerPage.menuitems_3rd);
+        Thread.sleep(3000);
+        Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.menuitems_3rd_items_url);
     }
 
     @Test(priority = 6, description = "Verify that the \"Log in\" button should be clickable")

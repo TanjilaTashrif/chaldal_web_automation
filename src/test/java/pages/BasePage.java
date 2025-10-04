@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Set;
 
 import static utilities.DriverSetup.getDriver;
 
@@ -125,6 +126,34 @@ public class BasePage {
             js.executeScript("arguments[0].click();", element);
         }
     }
+
+
+    public void clickAndSwitchToNewTab(By locator) {
+        WebDriver driver = getDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Store the current window handle
+        String parentTab = driver.getWindowHandle();
+
+        // Click the element (ensure clickable)
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+
+        // Wait until a new tab is opened
+        wait.until(d -> d.getWindowHandles().size() > 1);
+
+        // Switch to the new tab
+        Set<String> allTabs = driver.getWindowHandles();
+        for (String tab : allTabs) {
+            if (!tab.equals(parentTab)) {
+                driver.switchTo().window(tab);
+                break;
+            }
+        }
+
+        // Optional: wait until page loads fully (like checking URL or title)
+//        wait.until(d -> !d.getCurrentUrl().equals("about:blank"));
+    }
+
 
 
 
