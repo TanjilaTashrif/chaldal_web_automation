@@ -38,9 +38,13 @@ public class HeaderPage extends BasePage{
 
     public By flashsale_button = By.xpath("//span[normalize-space()='Flash Sales']");
     public By flashsale_button_page = By.xpath("//ul[@class='offer-container']");
+    public By menuItems_all_button = By.xpath("//div[@class='menu']");
 
-
-
+    public By food_button = By.xpath("//div[contains(text(),'Food')]");
+    public By fruits_button = By.xpath("//div[@class='name']//div//div//div[contains(text(),'Fruits & Vegetables')]");
+    public By fruits_button_page = By.xpath("//img[@alt='Fresh Vegetables']");
+    public By fresh_vegetable_button = By.xpath("//div[@class='category']//div//div[@class='name'][normalize-space()='Fresh Vegetables']");
+    public By fresh_vegetable_button_page = By.xpath("//div[@class='fade-carousel-container']//img");
 
 
 
