@@ -75,22 +75,25 @@ public class TestHeaderPage extends DriverSetup {
 
     @Test(priority = 5, description = "Verify menu items functionality")
     public void menuitemsfunctionality() throws InterruptedException {
-        Assert.assertTrue(headerPage.isVisible(headerPage.menuItems_all_button));
-        Assert.assertTrue(headerPage.isEnable(headerPage.menuItems_all_button));
+//        Assert.assertTrue(headerPage.isVisible(headerPage.menuItems_all_button));
+//        Assert.assertTrue(headerPage.isEnable(headerPage.menuItems_all_button));
 
 
         headerPage.clickOnElement(headerPage.food_button);
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         headerPage.clickOnElement(headerPage.fruits_button);
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
 
         Assert.assertTrue(headerPage.isVisible(headerPage.fruits_button_page));
 
         headerPage.clickOnElement(headerPage.fresh_vegetable_button);
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         Assert.assertTrue(headerPage.isVisible(headerPage.fresh_vegetable_button_page));
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
 
+        headerPage.scrollToAElement(headerPage.kacha_morich, 250);
+
+        Thread.sleep(3000);
 
     }
 

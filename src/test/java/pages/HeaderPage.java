@@ -45,6 +45,7 @@ public class HeaderPage extends BasePage{
     public By fruits_button_page = By.xpath("//img[@alt='Fresh Vegetables']");
     public By fresh_vegetable_button = By.xpath("//div[@class='category']//div//div[@class='name'][normalize-space()='Fresh Vegetables']");
     public By fresh_vegetable_button_page = By.xpath("//div[@class='fade-carousel-container']//img");
+    public By kacha_morich = By.xpath("//div[@class='product hasLinkedProduct']//div[@class='overlay text']");
 
 
 
