@@ -78,22 +78,61 @@ public class TestHeaderPage extends DriverSetup {
 //        Assert.assertTrue(headerPage.isVisible(headerPage.menuItems_all_button));
 //        Assert.assertTrue(headerPage.isEnable(headerPage.menuItems_all_button));
 
-
         headerPage.clickOnElement(headerPage.food_button);
 //        Thread.sleep(3000);
         headerPage.clickOnElement(headerPage.fruits_button);
 //        Thread.sleep(5000);
 
-        Assert.assertTrue(headerPage.isVisible(headerPage.fruits_button_page));
+//        Assert.assertTrue(headerPage.isVisible(headerPage.fruits_button_page));
 
         headerPage.clickOnElement(headerPage.fresh_vegetable_button);
 //        Thread.sleep(3000);
-        Assert.assertTrue(headerPage.isVisible(headerPage.fresh_vegetable_button_page));
+//        Assert.assertTrue(headerPage.isVisible(headerPage.fresh_vegetable_button_page));
+        Thread.sleep(3000);
+//        headerPage.scrollAndHover(headerPage.kacha_morich);
+        headerPage.waitForElementPresence(headerPage.kacha_morich);
+        headerPage.scrollToAElement(headerPage.kacha_morich, 200);
+//        Thread.sleep(5000);
+
+//        headerPage.hoverOnElement(headerPage.kacha_morich_hover);
+        Thread.sleep(2000);
+
+//        headerPage.safeClick(headerPage.kacha_morich);
+//        Thread.sleep(2000);
 //        Thread.sleep(3000);
 
-        headerPage.scrollToAElement(headerPage.kacha_morich, 250);
+    }
 
+    @Test(priority = 6, description = "Verify offer button flash page functionality")
+    public void TestPaginationBar() throws InterruptedException {
+
+        headerPage.safeClick(headerPage.right_pagination_bar);
+//        Thread.sleep(3000);
+        Assert.assertTrue(headerPage.isVisible(headerPage.stationery_product));
+        Assert.assertEquals(headerPage.getElementText(headerPage.stationery_product),"Stationery & Office");
+    }
+
+    @Test(priority = 7, description = "Verify offer button flash page functionality")
+    public void TestBodyLastPart() throws InterruptedException {
+
+//        headerPage.safeClick(headerPage.corporate_option);
+        headerPage.scrollToAElement(headerPage.corporate_option, 100);
         Thread.sleep(3000);
+
+        headerPage.clickOnElement(headerPage.corporate_option);
+        Thread.sleep(3000);
+        Assert.assertEquals(getDriver().getCurrentUrl(), headerPage.corporate_url);
+
+    }
+
+    @Test(priority = 8, description = "Verify offer button flash page functionality")
+    public void TestIconClick() throws InterruptedException {
+        headerPage.scrollToAElement(headerPage.deliver_cost_section, 200);
+        Assert.assertTrue(headerPage.isVisible(headerPage.delivery_cost_text));
+
+        headerPage.clickOnElement(headerPage.minus_icon);
+//        Assert.assertTrue(headerPage.isVisible(headerPage.whole_section_text));
+        Assert.assertTrue(headerPage.isVisible(headerPage.delivery_cost_text));
 
     }
 

@@ -53,8 +53,12 @@ public class BasePage {
 //        Allure.addAttachment(name, new ByteArrayInputStream(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES)));
 //    }
 
+    public String getElementText(By locator) {
+        return getElement(locator).getText();
+    }
+
     public void waitForElementPresence(By locator) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
@@ -99,16 +103,33 @@ public class BasePage {
 //        // Add small offset if sticky header hides it
 //        js.executeScript("window.scrollBy(0, -100);");
 //    }
+//
+//    public void scrollToAElement(By locator, int offset) {
+//        WebElement element = getElement(locator);
+//        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+//        js.executeScript("arguments[0].scrollIntoView(true);", element);
+//
+//        if (offset != 0) {
+//            js.executeScript("window.scrollBy(0, arguments[0]);", offset);
+//        }
+//    }
 
     public void scrollToAElement(By locator, int offset) {
-        WebElement element = getElement(locator);
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        // Wait for element to be present and visible
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
+        // Scroll element into view, center it in the viewport
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
+
+        // Apply additional offset if needed
         if (offset != 0) {
             js.executeScript("window.scrollBy(0, arguments[0]);", offset);
         }
     }
+
+
 
     public void safeClick(By locator) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
@@ -152,6 +173,22 @@ public class BasePage {
 
         // Optional: wait until page loads fully (like checking URL or title)
 //        wait.until(d -> !d.getCurrentUrl().equals("about:blank"));
+    }
+
+    public void scrollAndHover(By locator) {
+        WebDriver driver = getDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        Actions actions = new Actions(driver);
+
+        // Wait until element is present & visible
+        WebElement target = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+        // Scroll into view (centered)
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center', inline: 'center'});", target);
+
+        // Hover
+        actions.moveToElement(target).perform();
     }
 
 

@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 
+import java.security.PublicKey;
+
 
 public class HeaderPage extends BasePage{
 
@@ -45,9 +47,16 @@ public class HeaderPage extends BasePage{
     public By fruits_button_page = By.xpath("//img[@alt='Fresh Vegetables']");
     public By fresh_vegetable_button = By.xpath("//div[@class='category']//div//div[@class='name'][normalize-space()='Fresh Vegetables']");
     public By fresh_vegetable_button_page = By.xpath("//div[@class='fade-carousel-container']//img");
-    public By kacha_morich = By.xpath("//div[@class='product hasLinkedProduct']//div[@class='overlay text']");
-
-
+    public By kacha_morich = By.xpath("(//div[contains(@class,'product') or contains(@class,'item')])[92]");
+    public By kacha_morich_hover = By.xpath("//div[@class='product hasLinkedProduct']//p[@class='addText'][normalize-space()='Add to Shopping Bag']");
+    public By right_pagination_bar = By.xpath("//button[@class='scrollRight hidden-xs hidden-sm']");
+    public By stationery_product = By.xpath("//div[@class='categoryName'][normalize-space()='Stationery & Office']");
+    public By corporate_option = By.xpath("//a[@href='/corporate']");
+    public String corporate_url = "https://chaldal.com/corporate";
+    public By deliver_cost_section = By.xpath("//pre[1]");
+    public By delivery_cost_text = By.xpath("//span[normalize-space()='Q. How much do deliveries cost?']");
+    public By minus_icon = By.xpath("//i[@class='minus-sign']");
+    public By whole_section_text = By.xpath("//span[contains(text(),'A. The delivery fee across the country is in the t')]");
 
 
 
